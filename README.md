@@ -4,7 +4,7 @@ A simple and efficient URL Shortener built using **Node.js**, **Express.js**, **
 
 ## 🚀 Live Demo
 
-👉 **Live Website:** https://YOUR-VERCEL-LINK.vercel.app
+👉 **Live Website:** https://url-shortner-git-main-ashutoshsingh202003-4391s-projects.vercel.app/
 
 ---
 
@@ -112,10 +112,10 @@ http://localhost:3000
 **Ashutosh Singh**
 
 GitHub:
-https://github.com/YOUR_USERNAME
+https://github.com/ashu-singh-ashutosh
 
 LinkedIn:
-(Add your LinkedIn profile here)
+https://www.linkedin.com/in/ashu-singh-ashutosh/
 
 ---
 
