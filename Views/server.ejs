@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        padding: 20px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 500px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 18px;
+        padding: 35px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .container:hover {
+        transform: translateY(-5px);
+      }
+
+      h1 {
+        text-align: center;
+        color: #844906;
+        margin-bottom: 30px;
+        font-size: 2rem;
+        letter-spacing: 1px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        color: rgb(50, 45, 45);
+        margin-bottom: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+      }
+
+      input:focus {
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.35);
+        transform: scale(1.02);
+      }
+
+      input::placeholder {
+        color: #888;
+      }
+
+      button {
+        padding: 14px;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #00c6ff, #0072ff);
+        color: rgb(1, 2, 14);
+        font-size: 17px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+      }
+
+      button:hover {
+        background: linear-gradient(90deg, #0072ff, #00c6ff);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 114, 255, 0.35);
+      }
+
+      button:active {
+        transform: scale(0.97);
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 25px;
+        }
+
+        h1 {
+          font-size: 1.7rem;
+        }
+
+        button {
+          font-size: 16px;
+        }
+      }
+      /* ===========================
+   Result Card
+=========================== */
+
+.result {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.result h3 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.result a {
+    display: inline-block;
+    padding: 12px 18px;
+    color: #fff;
+    background: linear-gradient(90deg,#00c6ff,#0072ff);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    word-break: break-all;
+}
+
+.result a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 18px rgba(0,0,0,.25);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+      
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>🔗 URL Shortener</h1>
+
+      <form action="/shorten" method="post">
+        <label for="longUrl">Enter Long URL</label>
+
+        <input
+          type="url"
+          id="longUrl"
+          name="longUrl"
+          placeholder="https://example.com"
+          required
+        />
+
+        <button type="submit">Shorten URL</button>
+      </form>
+      <% if(shortUrl){ %>
+<div class="result">
+    <h3>Your Short URL</h3>
+
+    <a href="<%= shortUrl %>" target="_blank">
+        <%= shortUrl %>
+    </a>
+</div>
+<% } %>
+    </div>
+  </body>
+</html>
